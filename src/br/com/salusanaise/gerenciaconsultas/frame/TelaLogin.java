@@ -83,13 +83,15 @@ public class TelaLogin extends ValidaLogin{
 			public void actionPerformed(ActionEvent arg0) {
 				if(getUsuario() == usuario && getSenha() == usuario) {
 					JOptionPane.showMessageDialog(null, "Bem Vindo");
-					
-					
+					TelaDeMenu novaTela = new TelaDeMenu();
+					novaTela.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário e senha estão incorretos.");
 				}
 				
+				
 			}
+			
 		});
 		btnEntrar.setBounds(186, 258, 98, 24);
 		frame.getContentPane().add(btnEntrar);
