@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Sistema {
+public class TelaCadastro {
 
 	private JFrame frame;
 	private JTextField textNome;
@@ -33,7 +33,7 @@ public class Sistema {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Sistema window = new Sistema();
+					TelaCadastro window = new TelaCadastro();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class Sistema {
 	/**
 	 * Create the application.
 	 */
-	public Sistema() {
+	public TelaCadastro() {
 		initialize();
 	}
 
