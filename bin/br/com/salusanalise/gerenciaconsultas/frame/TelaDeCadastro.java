@@ -1,4 +1,4 @@
-package br.com.salusanaise.gerenciaconsultas.frame;
+package br.com.salusanalise.gerenciaconsultas.frame;
 
 import java.awt.BorderLayout;
 
