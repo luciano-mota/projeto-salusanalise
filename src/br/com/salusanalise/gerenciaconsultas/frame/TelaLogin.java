@@ -48,6 +48,16 @@ public class TelaLogin extends javax.swing.JFrame {
             if(rs.next()){
                 
                 System.out.println("logado no sistema");
+            
+                TelaDeMenu tm = new TelaDeMenu();
+                tm.setVisible(true);
+                
+                //fechando a tela de login
+                this.dispose();
+                
+                //fechando a conexao da tela de login com o banco
+                conexao.close();
+                
             }else{
                 
                 JOptionPane.showMessageDialog(null,"Usuário e/ou Senha inválido(s)");
@@ -80,7 +90,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUsuarioLogin = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnLoginSistema = new javax.swing.JButton();
         txtCmpSenhaLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,11 +103,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         txtUsuarioLogin.setName("txtUsuario"); // NOI18N
 
-        jButton1.setText("Login");
-        jButton1.setName("btnLogin"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLoginSistema.setText("Login");
+        btnLoginSistema.setName("btnLogin"); // NOI18N
+        btnLoginSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginSistemaActionPerformed(evt);
             }
         });
 
@@ -110,7 +120,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLoginSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -133,7 +143,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtCmpSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(jButton1)
+                .addComponent(btnLoginSistema)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -141,15 +151,9 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        try {
             logar();
-        } catch (Exception e) {
-        
-            
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -180,15 +184,13 @@ public class TelaLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaLogin().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLoginSistema;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField txtCmpSenhaLogin;
