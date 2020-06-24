@@ -5,9 +5,8 @@
  */
 package br.com.salusanalise.gerenciaconsultas.principal;
 
-import br.com.salusanalise.gerenciaconsultas.frame.TelaDeCadastro;
-import br.com.salusanalise.gerenciaconsultas.frame.TelaDeMenu;
-import br.com.salusanalise.gerenciaconsultas.frame.TelaLogin;
+import br.com.salusanalise.gerenciaconsultas.frame.*;
+import br.com.salusanalise.gerenciaconsultas.controls.ValidaLogin;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
 
 /**
@@ -23,16 +22,8 @@ public class Prjclinica {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TelaDeCadastro tc  = new TelaDeCadastro();
-       
-        tc.show();
-        
-        TelaDeMenu tm = new TelaDeMenu();
-        
-        tm.show();
-        
         TelaLogin tl = new TelaLogin();
-       
+        tl.show();
         
    }
     
