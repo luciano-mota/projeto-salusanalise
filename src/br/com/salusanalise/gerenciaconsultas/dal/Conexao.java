@@ -24,6 +24,11 @@ public class Conexao {
         String user = "oberdran";
         String password = "teste2019";
         
+        /*
+        String url = "jdbc:mysql://localhost:3306/db2020";
+        String user = "root";
+        String password = "";
+        */
         //estabelecendo a conexao com o banco
         try {
             //executa o arquivo do drive

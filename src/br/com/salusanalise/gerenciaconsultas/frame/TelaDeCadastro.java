@@ -12,6 +12,20 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import java.sql.*;
+import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+import java.util.*;
+
 public class TelaDeCadastro extends JFrame {
 
 	private JPanel contentPane;
@@ -26,6 +40,18 @@ public class TelaDeCadastro extends JFrame {
 	private JTextField textDataDoAtendimento;
 	private JTextField textDataDeEntrega;
 
+  
+        
+    //informações sobre conexão
+    Connection conexao = null;
+
+     //executar instrucoes sql
+    PreparedStatement pst = null;
+    
+    //executar instrucoes sql
+    ResultSet rs = null;
+        
+        
 	/**
 	 * Launch the application.
 	 */
@@ -46,7 +72,7 @@ public class TelaDeCadastro extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaDeCadastro() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 640, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -146,6 +172,53 @@ public class TelaDeCadastro extends JFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(258, 306, 107, 31);
 		contentPane.add(btnSalvar);
-	}
-
+              
+                btnSalvar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent arg0) {
+                        salvarPaciente();
+                    }
+                });
+                     
+        
+            //informações para poder salvar no banco            
+            conexao = Conexao.conector();
+       
+        }
+        
+//    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                                
+//                    // TODO add your handling code here:
+//        salvarPaciente();
+//    }
+        
+         
+    private void salvarPaciente(){
+        String sql = "insert into paciente (nome,cpf,dtnascimento)values(?,?,?)";
+   
+        try {
+            
+            pst = conexao.prepareStatement(sql);
+            
+            //pegar o conteúdo dos campos 
+            //esse numero, é o campo no banco de dados
+            pst.setString(1, txtNome.getText());
+            
+            pst.setString(2, txtCpf.getText());
+           
+            pst.setString(3, txtDataDeNascimento.getText());
+            
+           
+            //a linha abaixo atualiza a tabela usuario com os dados do formulario
+            //confirmar se os dados foram salvos
+            
+            int add = pst.executeUpdate();
+            
+            if(add >0){
+                JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+            }
+            
+        } catch (Exception e) {  
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+    }
 }
