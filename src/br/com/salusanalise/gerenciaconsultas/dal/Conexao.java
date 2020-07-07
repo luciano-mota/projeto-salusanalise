@@ -18,17 +18,17 @@ public class Conexao {
         
         //chamando o drive
         String driver = "com.mysql.jdbc.Driver";
-        
+        /*
         //armazenando informações referentes ao banco
         String url = "jdbc:mysql://db4free.net:3306/bd2019";
         String user = "oberdran";
         String password = "teste2019";
+        */
         
-        /*
         String url = "jdbc:mysql://localhost:3306/db2020";
         String user = "root";
         String password = "";
-        */
+        
         //estabelecendo a conexao com o banco
         try {
             //executa o arquivo do drive

@@ -39,7 +39,7 @@ public class TelaDeCadastro extends JFrame {
 	private JTextField txtBairro;
 	private JTextField textDataDoAtendimento;
 	private JTextField textDataDeEntrega;
-
+        private JTextField textIdade;
   
         
     //informações sobre conexão
@@ -169,6 +169,8 @@ public class TelaDeCadastro extends JFrame {
 		textDataDeEntrega.setBounds(340, 227, 143, 31);
 		contentPane.add(textDataDeEntrega);
 		
+          
+                
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(258, 306, 107, 31);
 		contentPane.add(btnSalvar);
@@ -192,7 +194,7 @@ public class TelaDeCadastro extends JFrame {
         
          
     private void salvarPaciente(){
-        String sql = "insert into paciente (nome,cpf,dtnascimento)values(?,?,?)";
+        String sql = "insert into paciente (nome,cpf,dtnascimento,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?)";
    
         try {
             
@@ -205,6 +207,24 @@ public class TelaDeCadastro extends JFrame {
             pst.setString(2, txtCpf.getText());
            
             pst.setString(3, txtDataDeNascimento.getText());
+            
+            
+            //contatos
+            
+            pst.setString(4, txtTelefone.getText());
+            
+            pst.setString(5, txtTelefone_2.getText());
+            
+            
+            //endereco
+            
+            pst.setString(6, txtEndereo.getText());
+            
+            pst.setString(7, txtBairro.getText());
+            
+            pst.setString(8, txtN.getText());
+            
+           // pst.setString(8, t.getText());
             
            
             //a linha abaixo atualiza a tabela usuario com os dados do formulario

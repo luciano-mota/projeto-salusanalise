@@ -55,6 +55,7 @@ public class TelaDeMenu extends JFrame {
         btnCadastrarCliente.setBounds(182, 129, 157, 24);
         contentPane.add(btnCadastrarCliente);
 
+        
         JButton btnClientesCadastrados = new JButton("Clientes cadastrados");
         btnClientesCadastrados.setBounds(182, 165, 157, 24);
         contentPane.add(btnClientesCadastrados);
