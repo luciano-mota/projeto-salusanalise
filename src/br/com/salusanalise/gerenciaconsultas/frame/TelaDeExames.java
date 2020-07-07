@@ -5,13 +5,13 @@
  */
 package br.com.salusanalise.gerenciaconsultas.frame;
 
-import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
-import sun.misc.Cleaner;
+
+import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
 
 /**
  *

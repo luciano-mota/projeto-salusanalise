@@ -52,14 +52,24 @@ public class TelaDeMenu extends JFrame {
                 telaDeCadastro.setVisible(rootPaneCheckingEnabled);
             }
         });
-        btnCadastrarCliente.setBounds(182, 129, 157, 24);
+        btnCadastrarCliente.setBounds(193, 103, 157, 24);
         contentPane.add(btnCadastrarCliente);
 
         
         JButton btnClientesCadastrados = new JButton("Clientes cadastrados");
-        btnClientesCadastrados.setBounds(182, 165, 157, 24);
+        btnClientesCadastrados.setBounds(193, 139, 157, 24);
         contentPane.add(btnClientesCadastrados);
+        
+        JButton btnExames = new JButton("Exames");
+        btnExames.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		
+        		TelaDeExames te = new TelaDeExames();
+        		te.show();
+        	}
+        });
+        btnExames.setBounds(193, 175, 157, 24);
+        contentPane.add(btnExames);
     
     }
-
 }

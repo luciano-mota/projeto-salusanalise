@@ -5,9 +5,7 @@
  */
 package br.com.salusanalise.gerenciaconsultas.principal;
 
-import br.com.salusanalise.gerenciaconsultas.frame.*;
-import br.com.salusanalise.gerenciaconsultas.controls.ValidaLogin;
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import br.com.salusanalise.gerenciaconsultas.frame.TelaLogin;
 
 /**
  *
