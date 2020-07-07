@@ -233,6 +233,15 @@ public class TelaDeExames extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairTelaExameActionPerformed
 
         
+    public void limparCampos(){
+        txtNomePaciente.setText("");
+        txtNomeExame.setText("");
+        txtAreaObervacaoExame.setText("");
+        txtDtAtendimentoExame.setText("");
+        txtDtEntregaExame.setText("");
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -326,6 +335,8 @@ public class TelaDeExames extends javax.swing.JFrame {
             
             if(add >0){
                 JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+            
+                limparCampos();
             }
             
         } catch (Exception e) {  
