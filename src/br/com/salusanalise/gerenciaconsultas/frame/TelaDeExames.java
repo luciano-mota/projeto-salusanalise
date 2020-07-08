@@ -211,8 +211,14 @@ public class TelaDeExames extends javax.swing.JFrame {
 
     private void btnSalvarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExameActionPerformed
         // TODO add your handling code here:
+
+        if(txtNomePaciente.getText().isEmpty() || txtAreaExame.getText().isEmpty() || txtAreaObervacaoExame.getText().isEmpty() || txtDtAtendimentoExame.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha os campos!");
+        }else{
+            salvarExamePaciente();
+            limparCampos();
+        }
         
-        salvarExamePaciente();
     }//GEN-LAST:event_btnSalvarExameActionPerformed
 
     private void btnPesquisarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarNomeActionPerformed
@@ -334,8 +340,6 @@ public class TelaDeExames extends javax.swing.JFrame {
             
             if(add >0){
                 JOptionPane.showMessageDialog(null, "Cadastro realizado!");
-            
-                limparCampos();
             }
             
         } catch (Exception e) {  
@@ -372,7 +376,7 @@ public class TelaDeExames extends javax.swing.JFrame {
                 //caso não encontre aparece a mensagem abaixo e limpa o campo
                 //para não confundi o usuário do sistema
                 
-                JOptionPane.showMessageDialog(null, "Paciente não localizado");
+                JOptionPane.showMessageDialog(null, "Paciente não localizado!");
                 txtNomePaciente.setText("");
             }
             
