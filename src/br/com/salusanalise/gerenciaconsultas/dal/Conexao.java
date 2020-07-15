@@ -6,6 +6,8 @@
 package br.com.salusanalise.gerenciaconsultas.dal;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +19,7 @@ public class Conexao {
         java.sql.Connection conexao = null;
         
         //chamando o drive
-        String driver = "com.mysql.jdbc.Driver";
+        String driver = "com.mysql.cj.jdbc.Driver";
         /*
         //armazenando informações referentes ao banco
         String url = "jdbc:mysql://db4free.net:3306/bd2019";
@@ -25,9 +27,9 @@ public class Conexao {
         String password = "teste2019";
         */
         
-        String url = "jdbc:mysql://localhost:3306/db2020";
+        String url = "jdbc:mysql://127.0.0.1:3306/db2020";
         String user = "root";
-        String password = "";
+        String password = "yeshua";
         
         //estabelecendo a conexao com o banco
         try {
@@ -40,15 +42,14 @@ public class Conexao {
             conexao = DriverManager.getConnection(url,user,password);
             
             return conexao;
-        } catch (Exception e) {
+        } catch (ClassNotFoundException |SQLException e) {
             
             //mostrando qual o erro na hora de conectar
             //pode ser retirado essa opção mais na frente
-            
+        	Logger.getLogger(GeraRelatorio.class.getName()).log(Level.SEVERE, null, e); 
             System.out.println("Erro de Conexao:"+e);
             
             return null;
         }
     }
-
 }
