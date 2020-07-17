@@ -12,11 +12,16 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
+import br.com.salusanalise.gerenciaconsultas.dal.GeraRelatorio;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.GroupLayout;
 import java.awt.Dimension;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -121,13 +126,21 @@ public class TelaDeExames extends javax.swing.JFrame {
         txtAreaExame = new JTextArea();
         txtAreaExame.setRows(5);
         txtAreaExame.setColumns(20);
+        
+        JButton btnImprimir = new JButton("Imprimir");
+        btnImprimir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		GeraRelatorio imprimirRelatorio = new GeraRelatorio();
+        		imprimirRelatorio.gerar();
+        	}
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
         				.addGroup(layout.createSequentialGroup()
         					.addGroup(layout.createParallelGroup(Alignment.LEADING)
         						.addGroup(layout.createSequentialGroup()
@@ -145,12 +158,15 @@ public class TelaDeExames extends javax.swing.JFrame {
         							.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
         							.addComponent(btnPesquisarNome))
         						.addComponent(txtAreaExame, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)))
-        				.addGroup(Alignment.TRAILING, layout.createParallelGroup(Alignment.LEADING, false)
-        					.addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+        				.addGroup(layout.createParallelGroup(Alignment.TRAILING, false)
+        					.addGroup(Alignment.LEADING, layout.createSequentialGroup()
         						.addComponent(btnSalvarExame)
+        						.addGap(104)
+        						.addComponent(btnImprimir)
         						.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(btnSairTelaExame))
-        					.addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+        						.addComponent(btnSairTelaExame, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+        						.addGap(12))
+        					.addGroup(layout.createSequentialGroup()
         						.addComponent(jLabel4)
         						.addPreferredGap(ComponentPlacement.RELATED)
         						.addComponent(txtDtAtendimentoExame, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
@@ -191,8 +207,9 @@ public class TelaDeExames extends javax.swing.JFrame {
         				.addComponent(jLabel4))
         			.addGap(18)
         			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(btnSairTelaExame)
-        				.addComponent(btnSalvarExame))
+        				.addComponent(btnSalvarExame)
+        				.addComponent(btnImprimir)
+        				.addComponent(btnSairTelaExame))
         			.addGap(19))
         );
         getContentPane().setLayout(layout);
