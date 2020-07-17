@@ -132,7 +132,7 @@ public class TelaDeCadastro extends JFrame {
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
-		JLabel lblTelefone_2 = new JLabel("TELEFONE:");
+		JLabel lblTelefone_2 = new JLabel("TELEFONE 2:");
 		lblTelefone_2.setBounds(244, 171, 159, 14);
 		contentPane.add(lblTelefone_2);
 		
@@ -184,7 +184,7 @@ public class TelaDeCadastro extends JFrame {
         
          
     private void salvarPaciente(){
-        String sql = "insert into paciente (nome,cpf,dtnascimento,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
    
         try {
             
@@ -198,23 +198,25 @@ public class TelaDeCadastro extends JFrame {
            
             pst.setString(3, txtDataDeNascimento.getText());
             
+            pst.setString(4, txtIdade.getText());
+            
             
             //contatos
             
-            pst.setString(4, txtTelefone.getText());
+            pst.setString(5, txtTelefone.getText());
             
-            pst.setString(5, txtTelefone_2.getText());
+            pst.setString(6, txtTelefone_2.getText());
             
             
             //endereco
             
-            pst.setString(6, txtEndereo.getText());
+            pst.setString(7, txtEndereo.getText());
             
-            pst.setString(7, txtBairro.getText());
+            pst.setString(8, txtBairro.getText());
             
-            pst.setString(8, txtN.getText());
+            pst.setString(9, txtN.getText());
             
-           // pst.setString(8, t.getText());
+           // pst.setString(9, t.getText());
             
            
             //a linha abaixo atualiza a tabela usuario com os dados do formulario

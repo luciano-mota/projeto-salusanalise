@@ -1,14 +1,13 @@
 package br.com.salusanalise.gerenciaconsultas.frame;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class TelaDeMenu extends JFrame {
 
@@ -66,7 +65,14 @@ public class TelaDeMenu extends JFrame {
         		
         		TelaDeExames te = new TelaDeExames();
         		te.show();
+        		
+        		this.dispose();
         	}
+
+			private void dispose() {
+				// TODO Auto-generated method stub
+				
+			}
         });
         btnExames.setBounds(193, 175, 157, 24);
         contentPane.add(btnExames);

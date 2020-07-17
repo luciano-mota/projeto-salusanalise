@@ -24,10 +24,7 @@ public class GeraRelatorio {
 			JasperViewer mostrarNaTela = new JasperViewer(jp);
 			mostrarNaTela.setVisible(true);
 
-			con.close();
-		} catch (SQLException ex) {
-
-			Logger.getLogger(GeraRelatorio.class.getName()).log(Level.SEVERE, null, ex);
+			//con.close();
 		} catch (JRException ex) {
 			Logger.getLogger(GeraRelatorio.class.getName()).log(Level.SEVERE, null, ex);
 		}
