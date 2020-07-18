@@ -21,7 +21,7 @@ public class GeraRelatorio {
 			HashMap param = new HashMap();
 			
 			JasperPrint jp = JasperFillManager.fillReport("RelatorioClinica.jasper", param, con);
-			JasperViewer mostrarNaTela = new JasperViewer(jp);
+			JasperViewer mostrarNaTela = new JasperViewer(jp, false);
 			mostrarNaTela.setVisible(true);
 
 			//con.close();

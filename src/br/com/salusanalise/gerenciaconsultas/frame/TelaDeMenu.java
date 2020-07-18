@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.com.salusanalise.gerenciaconsultas.dal.GeraRelatorio;
+
 public class TelaDeMenu extends JFrame {
 
     private JPanel contentPane;
@@ -55,11 +57,21 @@ public class TelaDeMenu extends JFrame {
         contentPane.add(btnCadastrarCliente);
 
         
-        JButton btnClientesCadastrados = new JButton("Clientes cadastrados");
-        btnClientesCadastrados.setBounds(193, 139, 157, 24);
+        JButton btnClientesCadastrados = new JButton("Relatório de Clientes");
+        btnClientesCadastrados.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		
+        		//abrir os relatórios
+        		
+        		GeraRelatorio abrirRelatorios = new GeraRelatorio();
+        		abrirRelatorios.gerar();
+        		
+        	}
+        });
+        btnClientesCadastrados.setBounds(193, 175, 157, 24);
         contentPane.add(btnClientesCadastrados);
         
-        JButton btnExames = new JButton("Exames");
+        JButton btnExames = new JButton("Cadastrar exames");
         btnExames.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		
@@ -74,7 +86,7 @@ public class TelaDeMenu extends JFrame {
 				
 			}
         });
-        btnExames.setBounds(193, 175, 157, 24);
+        btnExames.setBounds(193, 139, 157, 24);
         contentPane.add(btnExames);
     
     }
