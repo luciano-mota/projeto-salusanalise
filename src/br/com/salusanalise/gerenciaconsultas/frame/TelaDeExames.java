@@ -18,6 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
 import br.com.salusanalise.gerenciaconsultas.dal.GeraRelatorio;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -60,7 +61,6 @@ public class TelaDeExames extends javax.swing.JFrame {
         txtNomePaciente = new javax.swing.JTextField();
         btnPesquisarNome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtNomeExame = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtDtAtendimentoExame = new javax.swing.JTextField();
@@ -70,12 +70,20 @@ public class TelaDeExames extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaObervacaoExame = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        txtNomeExame = new javax.swing.JTextField();
+        txtNomeExame1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exames");
-        setResizable(false);
 
         jLabel1.setText("Paciente");
+
+        txtNomePaciente.setText("Nome ou Cpf para pesquisa");
+        txtNomePaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomePacienteActionPerformed(evt);
+            }
+        });
 
         btnPesquisarNome.setText("Pesquisar");
         btnPesquisarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +93,6 @@ public class TelaDeExames extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Exame");
-
-        txtNomeExame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeExameActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Data Entrega");
 
@@ -128,6 +130,8 @@ public class TelaDeExames extends javax.swing.JFrame {
 
         jLabel5.setText("Observação");
 
+        txtNomeExame.setText("Exame a realizar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,13 +150,16 @@ public class TelaDeExames extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNomeExame, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarNome))))
+                                .addComponent(btnPesquisarNome))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                    .addComponent(txtNomeExame)
+                                    .addComponent(txtNomeExame1))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,9 +184,11 @@ public class TelaDeExames extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNomeExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(txtNomeExame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
@@ -229,13 +238,19 @@ public class TelaDeExames extends javax.swing.JFrame {
 
     private void btnPesquisarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarNomeActionPerformed
         // TODO add your handling code here:
-        
+       
         if(txtNomePaciente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Digite o nome do Paciente!");
-        }else{
-            buscarNomePaciente();
+            JOptionPane.showMessageDialog(null, "Digite o Nome/Cpf do Paciente!");
         }
-
+        else if(txtNomePaciente.getText().matches("[a-z]*")){
+            
+            buscarNomePaciente();
+   
+        }
+        else
+        {
+            buscarPacienteByCpf();
+        }
     }//GEN-LAST:event_btnPesquisarNomeActionPerformed
 
     private void btnSairTelaExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairTelaExameActionPerformed
@@ -243,6 +258,10 @@ public class TelaDeExames extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_btnSairTelaExameActionPerformed
+
+    private void txtNomePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomePacienteActionPerformed
 
         
     public void limparCampos(){
@@ -306,6 +325,7 @@ public class TelaDeExames extends javax.swing.JFrame {
     private javax.swing.JTextField txtDtAtendimentoExame;
     private javax.swing.JTextField txtDtEntregaExame;
     private javax.swing.JTextField txtNomeExame;
+    private javax.swing.JTextField txtNomeExame1;
     private javax.swing.JTextField txtNomePaciente;
     // End of variables declaration//GEN-END:variables
 
@@ -392,4 +412,43 @@ public class TelaDeExames extends javax.swing.JFrame {
         }
     
     }
+    
+    private void buscarPacienteByCpf(){
+        
+        //fazendo busca no banco passando o nome na hr da busca, por isso o like na consulta
+        String sql = "select nome from paciente where cpf like ?";
+   
+        try {
+            
+            pst = conexao.prepareStatement(sql);
+           
+            //desse jeito abaixo ele pega as informações passada no campo e concatena junto a string sql
+            pst.setString(1, "%"+txtNomePaciente.getText()+"%");
+            
+           //depois de alimentar o ponto de interrogação
+           
+            rs = pst.executeQuery();
+           
+         
+            if(rs.next()){
+                
+                // esse metodo next() diz se existe o proximo, ele vai pegar a informação do campo 1, que
+                //é o campo nome, começa do 0 zero
+                txtNomePaciente.setText(rs.getString(1));
+   
+            }else{
+                //caso não encontre aparece a mensagem abaixo e limpa o campo
+                //para não confundi o usuário do sistema
+                
+                JOptionPane.showMessageDialog(null, "Paciente não localizado!");
+                txtNomePaciente.setText("");
+            }
+            
+        } catch (Exception e) {  
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+    }
+    
+    
 }
