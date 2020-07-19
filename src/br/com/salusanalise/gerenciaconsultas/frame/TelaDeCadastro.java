@@ -177,14 +177,17 @@ public class TelaDeCadastro extends JFrame {
        
         }
         
-//    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                                
-//                    // TODO add your handling code here:
-//        salvarPaciente();
-//    }
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                                
+                    // TODO add your handling code here:
+        salvarPaciente();
+    }
         
          
     private void salvarPaciente(){
-        String sql = "insert into paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
+        //String sql = "insert into paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
+   
+        //para salvar no banco que roda junto com a aplicação
+        String sql = "insert into root.paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
    
         try {
             

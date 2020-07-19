@@ -341,7 +341,10 @@ public class TelaDeExames extends javax.swing.JFrame {
 
        
     private void salvarExamePaciente(){
-        String sql = "insert into atendimento_paciente (nome_paciente,exame,observ,dtatendimento,dtentregaexame)values(?,?,?,?,?)";
+        //String sql = "insert into atendimento_paciente (nome_paciente,exame,observ,dtatendimento,dtentregaexame)values(?,?,?,?,?)";
+   
+        //para salvar no banco que roda junto com a aplicação
+        String sql = "insert into root.atendimento_paciente (nome_paciente,exame,observ,dtatendimento,dtentregaexame)values(?,?,?,?,?)";
    
         try {
             

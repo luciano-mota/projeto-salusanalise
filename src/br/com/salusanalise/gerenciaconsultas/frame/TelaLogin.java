@@ -67,6 +67,48 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }
     
+    public void logarBancoJuntoAplicacao (){
+        
+        //INSERT INTO usuariosclinica VALUES(1,'admin','administrador','clinica2020')
+        
+        String sql = "select * from root.usuariosclinica where login = ? and senha = ?";
+        try {
+            //as linhas abaixo preparam a consulta ao banco em função
+            //do que foi digitado nas caixas de texto. O ? é substituído
+            //pelo conteúdo das variáveis
+            
+            pst = conexao.prepareStatement(sql);
+            
+            //pegando os valores dos campos de texto
+            pst.setString(1, txtUsuarioLogin.getText());
+            pst.setString(2, txtCmpSenhaLogin.getText());
+            
+            //a linha abaixo executa a query
+            rs = pst.executeQuery();
+            
+            //verificando se o usuario e senha correspondente
+            if(rs.next()){
+                
+                System.out.println("logado no sistema - Banco Derby");
+            
+                TelaDeMenu tm = new TelaDeMenu();
+                tm.setVisible(true);
+                
+                //fechando a tela de login
+                this.dispose();
+                
+                //fechando a conexao da tela de login com o banco
+                conexao.close();
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(null,"Usuário e/ou Senha inválido(s)");
+            }
+            
+        } catch (Exception e) {
+        }
+    }
+    
     /**
      * Creates new form TelaLogin
      */
@@ -153,7 +195,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnLoginSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            logar();
+            //logar();
+            
+            //logando no banco que roda junto com a aplicação
+            logarBancoJuntoAplicacao ();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
