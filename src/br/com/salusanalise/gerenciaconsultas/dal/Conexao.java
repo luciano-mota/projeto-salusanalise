@@ -19,8 +19,8 @@ public class Conexao {
         java.sql.Connection conexao = null;
         
         //chamando o drive
-        //String driver = "com.mysql.cj.jdbc.Driver";
-        String driver = "com.mysql.jdbc.Driver";
+        String driver = "com.mysql.cj.jdbc.Driver";
+      //  String driver = "com.mysql.jdbc.Driver";
 		
         //armazenando informações referentes ao banco 
       /*
@@ -29,14 +29,15 @@ public class Conexao {
        * String password = "teste2019";
        */
 
-       //String url = "jdbc:mysql://127.0.0.1:3306/db2020"; 
-       //String user = "root";
-       //String password = "yeshua";
-
-       String url = "jdbc:mysql://localhost/db2020"; 
+       String url = "jdbc:mysql://127.0.0.1:3306/db2020"; 
        String user = "root";
-       String password = "";
-       
+       String password = "yeshua";
+        
+		/*
+		 * String url = "jdbc:mysql://localhost/db2020"; 
+		 * String user = "root"; 
+		 * String password = "";
+		 */
         //estabelecendo a conexao com o banco
         try {
             //executa o arquivo do drive

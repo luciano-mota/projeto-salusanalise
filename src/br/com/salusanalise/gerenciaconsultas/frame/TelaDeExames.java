@@ -19,6 +19,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import br.com.salusanalise.gerenciaconsultas.dal.Conexao;
 import br.com.salusanalise.gerenciaconsultas.dal.GeraRelatorio;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -70,13 +71,11 @@ public class TelaDeExames extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaObervacaoExame = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        txtNomeExame = new javax.swing.JTextField();
-        txtNomeExame1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Exames");
 
-        jLabel1.setText("Paciente");
+        jLabel1.setText("Paciente:");
 
         txtNomePaciente.setText("Nome ou Cpf para pesquisa");
         txtNomePaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -92,11 +91,11 @@ public class TelaDeExames extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Exame");
+        jLabel2.setText("Exame:");
 
-        jLabel3.setText("Data Entrega");
+        jLabel3.setText("Data Entrega:");
 
-        jLabel4.setText("Data do Atendimento");
+        jLabel4.setText("Data do Atendimento:");
 
         txtDtAtendimentoExame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,85 +127,95 @@ public class TelaDeExames extends javax.swing.JFrame {
         txtAreaObervacaoExame.setRows(5);
         jScrollPane1.setViewportView(txtAreaObervacaoExame);
 
-        jLabel5.setText("Observação");
-
-        txtNomeExame.setText("Exame a realizar");
+        jLabel5.setText("Observação:");
+        
+        scrollPane = new JScrollPane();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalvarExame)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSairTelaExame))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarNome))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                                    .addComponent(txtNomeExame)
-                                    .addComponent(txtNomeExame1))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDtAtendimentoExame, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDtEntregaExame, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(27, 27, 27))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGap(19)
+        									.addComponent(jLabel2)
+        									.addGap(29))
+        								.addGroup(layout.createSequentialGroup()
+        									.addComponent(jLabel5)
+        									.addPreferredGap(ComponentPlacement.RELATED))
+        								.addGroup(layout.createSequentialGroup()
+        									.addComponent(jLabel1)
+        									.addPreferredGap(ComponentPlacement.UNRELATED)))
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 203, GroupLayout.PREFERRED_SIZE)
+        								.addGroup(layout.createSequentialGroup()
+        									.addComponent(txtNomePaciente, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)
+        									.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+        									.addComponent(btnPesquisarNome))
+        								.addGroup(layout.createSequentialGroup()
+        									.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)
+        									.addGap(0, 99, Short.MAX_VALUE))))
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jLabel4)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(txtDtAtendimentoExame, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+        							.addGap(18)
+        							.addComponent(jLabel3)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(txtDtEntregaExame, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+        							.addGap(0, 0, Short.MAX_VALUE))))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(29)
+        					.addComponent(btnSalvarExame)
+        					.addPreferredGap(ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+        					.addComponent(btnSairTelaExame)))
+        			.addGap(42))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPesquisarNome))
-                    .addComponent(jLabel1))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNomeExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(txtNomeExame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtDtAtendimentoExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(txtDtEntregaExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvarExame)
-                    .addComponent(btnSairTelaExame))
-                .addGap(19, 19, 19))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtNomePaciente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(btnPesquisarNome)
+        				.addComponent(jLabel1))
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(39)
+        					.addComponent(jLabel2)
+        					.addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+        					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        							.addGap(18))
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jLabel5)
+        							.addGap(49))))
+        				.addGroup(layout.createSequentialGroup()
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+        					.addGap(98)))
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(txtDtAtendimentoExame, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        					.addComponent(jLabel3)
+        					.addComponent(txtDtEntregaExame, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(jLabel4))
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(btnSairTelaExame)
+        				.addComponent(btnSalvarExame))
+        			.addGap(19))
         );
+        
+        txtNomeExame = new JTextArea();
+        scrollPane.setViewportView(txtNomeExame);
+        getContentPane().setLayout(layout);
 
         setSize(new java.awt.Dimension(441, 342));
         setLocationRelativeTo(null);
@@ -324,9 +333,9 @@ public class TelaDeExames extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaObervacaoExame;
     private javax.swing.JTextField txtDtAtendimentoExame;
     private javax.swing.JTextField txtDtEntregaExame;
-    private javax.swing.JTextField txtNomeExame;
-    private javax.swing.JTextField txtNomeExame1;
     private javax.swing.JTextField txtNomePaciente;
+    private JScrollPane scrollPane;
+    private JTextArea txtNomeExame;
     // End of variables declaration//GEN-END:variables
 
 
