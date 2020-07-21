@@ -167,7 +167,12 @@ public class TelaDeCadastro extends JFrame {
               
                 btnSalvar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
-                        salvarPaciente();
+                        if(txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtIdade.getText().isEmpty()){
+                            JOptionPane.showMessageDialog(null, "Preencha os campos!");
+                        }else{
+                            salvarPaciente();
+                            limparCampos();
+                        }
                     }
                 });
                      
@@ -176,13 +181,7 @@ public class TelaDeCadastro extends JFrame {
             conexao = Conexao.conector();
        
         }
-        
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                                
-                    // TODO add your handling code here:
-        salvarPaciente();
-    }
-        
-         
+                 
     private void salvarPaciente(){
         //String sql = "insert into paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
    
@@ -232,8 +231,21 @@ public class TelaDeCadastro extends JFrame {
             }
             
         } catch (Exception e) {  
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Termine o cadastro!");
         }
     
+    }
+    
+    private void limparCampos(){
+        
+	txtNome.setText("");
+	txtCpf.setText("");
+	txtDataDeNascimento.setText("");
+	txtEndereo.setText("");
+	txtN.setText("");
+	txtTelefone.setText("");
+	txtTelefone_2.setText("");
+	txtBairro.setText("");
+        textIdade.setText("");   
     }
 }

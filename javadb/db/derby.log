@@ -1,7 +1,7 @@
-Sun Jul 19 15:39:59 BRT 2020 : Apache Derby Servidor de Rede - 10.14.2.0 - (1828579) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Mon Jul 20 00:20:18 BRT 2020 : Apache Derby Servidor de Rede - 10.14.2.0 - (1828579) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Sun Jul 19 15:40:01 BRT 2020:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instância a816c00e-0173-6860-2773-ffffd153b8d4
+Mon Jul 20 00:20:19 BRT 2020:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instância a816c00e-0173-6a3c-85f3-ffffd153b8d4
 no diretório de banco de dados C:\prjclinica\javadb\db\db2020 
 
 java.vendor=Oracle Corporation
@@ -13,4 +13,4 @@ os.version=10.0
 derby.system.home=C:\prjclinica\javadb\db
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Jul 19 15:51:09 BRT 2020: Shutting down Derby engine
+Mon Jul 20 01:05:27 BRT 2020: Shutting down Derby engine
