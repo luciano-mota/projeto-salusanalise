@@ -186,7 +186,7 @@ public class TelaDeCadastro extends JFrame {
         //String sql = "insert into paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
    
         //para salvar no banco que roda junto com a aplicação
-        String sql = "insert into root.paciente (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into root.paciente2 (nome,cpf,dtnascimento,idade,tel1,tel2,endereco,bairro,numeroendereco)values(?,?,?,?,?,?,?,?,?)";
    
         try {
             

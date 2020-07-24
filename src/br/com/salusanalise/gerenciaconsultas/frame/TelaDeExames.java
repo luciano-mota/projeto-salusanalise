@@ -330,6 +330,7 @@ public class TelaDeExames extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbIdPaciente;
     private javax.swing.JTextArea txtAreaObervacaoExame;
     private javax.swing.JTextField txtDtAtendimentoExame;
     private javax.swing.JTextField txtDtEntregaExame;
@@ -344,7 +345,7 @@ public class TelaDeExames extends javax.swing.JFrame {
         //String sql = "insert into atendimento_paciente (nome_paciente,exame,observ,dtatendimento,dtentregaexame)values(?,?,?,?,?)";
    
         //para salvar no banco que roda junto com a aplicação
-        String sql = "insert into root.atendimento_paciente (nome_paciente,exame,observ,dtatendimento,dtentregaexame)values(?,?,?,?,?)";
+        String sql = "insert into root.atendimento_paciente2 (nome_paciente,exame,observ,dtatendimento,dtentregaexame,idpaciente)values(?,?,?,?,?,?)";
    
         try {
             
@@ -371,7 +372,9 @@ public class TelaDeExames extends javax.swing.JFrame {
             
             pst.setString(5, txtDtEntregaExame.getText());
             
-           
+          //pegar os dados da id e passar para a Label
+            pst.setString(6, lbIdPaciente.getText());
+            
             //a linha abaixo atualiza a tabela usuario com os dados do formulario
             //confirmar se os dados foram salvos
             
@@ -391,7 +394,7 @@ public class TelaDeExames extends javax.swing.JFrame {
     private void buscarNomePaciente(){
         
         //fazendo busca no banco passando o nome na hr da busca, por isso o like na consulta
-        String sql = "select nome from paciente where nome like ?";
+        String sql = "select id, nome from paciente where nome like ?";
    
         try {
             
@@ -409,7 +412,11 @@ public class TelaDeExames extends javax.swing.JFrame {
                 
                 // esse metodo next() diz se existe o proximo, ele vai pegar a informação do campo 1, que
                 //é o campo nome, começa do 0 zero
-                txtNomePaciente.setText(rs.getString(1));
+                txtNomePaciente.setText(rs.getString(2));
+                
+              //vai pegar o que est� no id da tabela paciente2 e setar na label
+                lbIdPaciente.setText(rs.getString("id"));
+                
    
             }else{
                 //caso não encontre aparece a mensagem abaixo e limpa o campo
@@ -428,7 +435,7 @@ public class TelaDeExames extends javax.swing.JFrame {
     private void buscarPacienteByCpf(){
         
         //fazendo busca no banco passando o nome na hr da busca, por isso o like na consulta
-        String sql = "select nome from paciente where cpf like ?";
+        String sql = "select id, nome from paciente where cpf like ?";
    
         try {
             
@@ -446,8 +453,12 @@ public class TelaDeExames extends javax.swing.JFrame {
                 
                 // esse metodo next() diz se existe o proximo, ele vai pegar a informação do campo 1, que
                 //é o campo nome, começa do 0 zero
-                txtNomePaciente.setText(rs.getString(1));
+                txtNomePaciente.setText(rs.getString(2));
    
+              //vai pegar o que est� no id da tabela paciente2 e setar na label
+                lbIdPaciente.setText(rs.getString("id"));
+                
+                
             }else{
                 //caso não encontre aparece a mensagem abaixo e limpa o campo
                 //para não confundi o usuário do sistema
@@ -461,6 +472,5 @@ public class TelaDeExames extends javax.swing.JFrame {
         }
     
     }
-    
-    
+        
 }
