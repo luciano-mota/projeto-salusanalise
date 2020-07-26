@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioClinica" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02d1bdb6-7fde-4fa0-b02f-8391ca4f6db4">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[ZGIyMDIwLmF0ZW5kaW1lbnRvX3BhY2llbnRlIEFTICw3NywxODksYjRmMTJiMGYtYTFlNi00YTM3
-LTg0YTgtODEwZGE4NWZhZjhkO2RiMjAyMC5wYWNpZW50ZSBBUyAsMTExLDc0LDZhMjI2ZDQzLTQ3
-NDEtNDg0MS1hYzAzLWJjNjRhOWMyMDBmYjs=]]>
-	</property>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT db2020.paciente.id,
 	db2020.paciente.nome,
@@ -23,8 +19,8 @@ NDEtNDg0MS1hYzAzLWJjNjRhOWMyMDBmYjs=]]>
 	db2020.atendimento_paciente.dtatendimento,
 	db2020.atendimento_paciente.exame,
 	db2020.atendimento_paciente.id
-FROM db2020.paciente,
-	db2020.atendimento_paciente]]>
+FROM db2020.paciente
+INNER JOIN db2020.atendimento_paciente ON db2020.atendimento_paciente.paciente_id = db2020.paciente.id;]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="id"/>
@@ -89,9 +85,9 @@ FROM db2020.paciente,
 		<band height="79" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="65" splitType="Stretch">
+		<band height="47" splitType="Stretch">
 			<staticText>
-				<reportElement x="192" y="35" width="170" height="30" uuid="6ed87a13-7bc3-423a-b255-d6b25096397f">
+				<reportElement x="190" y="10" width="170" height="30" uuid="6ed87a13-7bc3-423a-b255-d6b25096397f">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -102,7 +98,7 @@ FROM db2020.paciente,
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="390" splitType="Stretch">
+		<band height="217" splitType="Stretch">
 			<staticText>
 				<reportElement x="20" y="81" width="70" height="30" uuid="fa05d9b7-79c9-4dd2-818d-9ef9c5d61292">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df327b06-6387-4fa1-a629-90003e5a6061"/>
@@ -231,86 +227,12 @@ FROM db2020.paciente,
 				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
 				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="409" y="260" width="128" height="30" uuid="c1da1153-cac0-4f09-b5da-9107b0e6a870">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51e92054-cbe8-462a-b9a6-fdea896bf20e"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
-				<textFieldExpression><![CDATA[$F{tel2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="267" y="260" width="133" height="30" uuid="6e05d4f6-b68f-4348-ac26-ca62e9032551">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bbcd76b-f3c0-421c-ba9d-708028898e10"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
-				<textFieldExpression><![CDATA[$F{tel1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="20" y="260" width="240" height="130" uuid="b9a73d4f-8a1c-43a5-bd88-4988e06512f5">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14912acc-f5c4-4a92-8950-280ed7ee59f2"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
-				<textFieldExpression><![CDATA[$F{exame}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="410" y="250" width="128" height="30" uuid="674eba4a-c1ab-491b-86d7-df074eccfcb3">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51e92054-cbe8-462a-b9a6-fdea896bf20e"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
-					<pen lineWidth="0.25"/>
-				</box>
-				<text><![CDATA[FONE 2:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="20" y="250" width="240" height="130" uuid="ecd89b93-fbe1-4d19-98d7-e26de5f20888">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14912acc-f5c4-4a92-8950-280ed7ee59f2"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
-					<pen lineWidth="0.25"/>
-				</box>
-				<text><![CDATA[EXAME:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="268" y="250" width="133" height="30" uuid="9c50e94d-5b22-4c5a-8985-a28500cc6888">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bbcd76b-f3c0-421c-ba9d-708028898e10"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
-					<pen lineWidth="0.25"/>
-				</box>
-				<text><![CDATA[FONE:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="268" y="310" width="132" height="30" uuid="725d212e-04b6-48d4-80a7-092ae9620f77">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0a451d3-f8b2-44a1-8d41-8fe94ebc0c06"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
-					<pen lineWidth="0.25"/>
-				</box>
-				<text><![CDATA[DATA DO ATENDIMENTO:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="267" y="320" width="132" height="30" uuid="206c064e-626a-4468-bdaf-77393ac2389c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0a451d3-f8b2-44a1-8d41-8fe94ebc0c06"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
-				<textFieldExpression><![CDATA[$F{dtatendimento}]]></textFieldExpression>
-			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="35" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="90" splitType="Stretch">
-			<textField>
-				<reportElement x="20" y="-21" width="240" height="111" uuid="2d8a79d7-3825-47ba-80b4-8dbb465d30d7">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90e62234-216a-49e0-8108-898b80cbc17f"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="1"/>
-				<textFieldExpression><![CDATA[$F{observ}]]></textFieldExpression>
-			</textField>
+		<band height="295" splitType="Stretch">
 			<staticText>
-				<reportElement x="20" y="-31" width="240" height="111" uuid="41fa7e2d-d497-4f09-accc-ef02427260c8">
+				<reportElement x="10" y="155" width="240" height="111" uuid="41fa7e2d-d497-4f09-accc-ef02427260c8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90e62234-216a-49e0-8108-898b80cbc17f"/>
 				</reportElement>
 				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
@@ -318,8 +240,15 @@ FROM db2020.paciente,
 				</box>
 				<text><![CDATA[OBS.:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="30" y="165" width="210" height="85" uuid="2d8a79d7-3825-47ba-80b4-8dbb465d30d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90e62234-216a-49e0-8108-898b80cbc17f"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="1"/>
+				<textFieldExpression><![CDATA[$F{observ}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="360" y="9" width="117" height="30" uuid="0f53ffbb-abc7-4e7f-968b-adca52bfdb06">
+				<reportElement x="337" y="165" width="117" height="30" uuid="0f53ffbb-abc7-4e7f-968b-adca52bfdb06">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b522f00-6f67-4e54-bd2f-bc15e71cd7bd"/>
 				</reportElement>
 				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
@@ -328,7 +257,7 @@ FROM db2020.paciente,
 				<text><![CDATA[DATA DE ENTREGA:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="360" y="23" width="117" height="30" uuid="462e1bc7-e484-46db-8ac6-c4af0f609586">
+				<reportElement x="340" y="175" width="117" height="30" uuid="462e1bc7-e484-46db-8ac6-c4af0f609586">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b522f00-6f67-4e54-bd2f-bc15e71cd7bd"/>
 				</reportElement>
 				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
@@ -336,12 +265,79 @@ FROM db2020.paciente,
 				</box>
 				<textFieldExpression><![CDATA[$F{dtentregaexame}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="10" y="10" width="240" height="130" uuid="ecd89b93-fbe1-4d19-98d7-e26de5f20888">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14912acc-f5c4-4a92-8950-280ed7ee59f2"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.25"/>
+				</box>
+				<text><![CDATA[EXAME:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="15" y="25" width="240" height="130" uuid="b9a73d4f-8a1c-43a5-bd88-4988e06512f5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14912acc-f5c4-4a92-8950-280ed7ee59f2"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
+				<textFieldExpression><![CDATA[$F{exame}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="10" width="133" height="30" uuid="9c50e94d-5b22-4c5a-8985-a28500cc6888">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bbcd76b-f3c0-421c-ba9d-708028898e10"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.25"/>
+				</box>
+				<text><![CDATA[FONE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="10" width="128" height="30" uuid="674eba4a-c1ab-491b-86d7-df074eccfcb3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51e92054-cbe8-462a-b9a6-fdea896bf20e"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.25"/>
+				</box>
+				<text><![CDATA[FONE 2:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="22" width="128" height="30" uuid="c1da1153-cac0-4f09-b5da-9107b0e6a870">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51e92054-cbe8-462a-b9a6-fdea896bf20e"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
+				<textFieldExpression><![CDATA[$F{tel2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="22" width="133" height="30" uuid="6e05d4f6-b68f-4348-ac26-ca62e9032551">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bbcd76b-f3c0-421c-ba9d-708028898e10"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
+				<textFieldExpression><![CDATA[$F{tel1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="269" y="50" width="132" height="30" uuid="725d212e-04b6-48d4-80a7-092ae9620f77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0a451d3-f8b2-44a1-8d41-8fe94ebc0c06"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.25"/>
+				</box>
+				<text><![CDATA[DATA DO ATENDIMENTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="60" width="132" height="30" uuid="206c064e-626a-4468-bdaf-77393ac2389c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0a451d3-f8b2-44a1-8d41-8fe94ebc0c06"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="4" bottomPadding="0"/>
+				<textFieldExpression><![CDATA[$F{dtatendimento}]]></textFieldExpression>
+			</textField>
 		</band>
+	</detail>
+	<columnFooter>
+		<band height="90" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>

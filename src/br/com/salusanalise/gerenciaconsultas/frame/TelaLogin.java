@@ -195,10 +195,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnLoginSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            //logar();
-            
-            //logando no banco que roda junto com a aplicação
-            logarBancoJuntoAplicacao ();
+            logar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

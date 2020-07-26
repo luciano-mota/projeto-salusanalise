@@ -15,57 +15,35 @@ import java.util.logging.Logger;
  */
 public class Conexao {
 
-    public static Connection conector(){
-        java.sql.Connection conexao = null;
-        
-        //chamando o drive
-        //String driver = "com.mysql.cj.jdbc.Driver";
-      //  String driver = "com.mysql.jdbc.Driver";
-		
-        //armazenando informações referentes ao banco 
-      /*
-       * String url = "jdbc:mysql://db4free.net:3306/bd2019"; 
-       * String user = "oberdran"; 
-       * String password = "teste2019";
-       */
+	public static Connection conector() {
+		java.sql.Connection conexao = null;
 
-       //String url = "jdbc:mysql://127.0.0.1:3306/db2020"; 
-       //String user = "root";
-       //String password = "yeshua";
-        
-    /*
-     * String url = "jdbc:mysql://localhost/db2020"; 
-     * String user = "root"; 
-     * String password = "";
-     */
-    
-       //chamando drive do banco que roda junto com aplicação
-       String driver = "org.apache.derby.jdbc.ClientDriver";
-       
-       //configurações bo banco que roda junto com aplicação
-       String url = "jdbc:derby://localhost:1527/db2020;create=false";
-       String user = "root";
-       String password = "prjclinica";  
-        
-        //estabelecendo a conexao com o banco
-        try {
-            //executa o arquivo do drive
-            Class.forName(driver);
-            
-            //caso a conexão com o banco seja bem sucedida
-            //ele conecta no banco com o usuario e senha
-            //retornando a conexão
-            conexao = DriverManager.getConnection(url,user,password);
-            
-            return conexao;
-        } catch (ClassNotFoundException |SQLException e) {
-            
-            //mostrando qual o erro na hora de conectar
-            //pode ser retirado essa opção mais na frente
-        	Logger.getLogger(GeraRelatorio.class.getName()).log(Level.SEVERE, null, e); 
-            System.out.println("Erro de Conexao:"+e);
-            
-            return null;
-        }
-    }
+		// chamando o drive
+		String driver = "com.mysql.jdbc.Driver";
+
+		// armazenando informações referentes ao banco
+		String url = "jdbc:mysql://localhost:3306/db2020";
+		String user = "root";
+		String password = "12345678";
+
+		// estabelecendo a conexao com o banco
+		try {
+			// executa o arquivo do drive
+			Class.forName(driver);
+
+			// caso a conexão com o banco seja bem sucedida
+			// ele conecta no banco com o usuario e senha
+			// retornando a conexão
+			conexao = DriverManager.getConnection(url, user, password);
+			return conexao;
+		} catch (ClassNotFoundException | SQLException e) {
+
+			// mostrando qual o erro na hora de conectar
+			// pode ser retirado essa opção mais na frente
+			Logger.getLogger(GeraRelatorio.class.getName()).log(Level.SEVERE, null, e);
+			System.out.println("Erro de Conexao:" + e);
+
+			return null;
+		}
+	}
 }
